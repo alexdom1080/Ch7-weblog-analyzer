@@ -86,7 +86,6 @@ public class LogAnalyzer
      * @returns int - the busiest hour
      */
     public int busiestHour() {
-        
         int maxHour = 0;
         
         for(int hour = 1; hour < hourCounts.length; hour++) {
@@ -113,4 +112,23 @@ public class LogAnalyzer
         
         return quietestHour;
     }
+    
+    /**
+     * Tracks busiest two hours, while returning first of the two hours
+     * @returns int - the first of the two busiest hours
+     */
+    public int busiestTwoHours () {
+        int firstHour = 0;
+        int secondHour = 0;
+        
+        for(int i = 0; i < hourCounts.length; i++) {
+            if (firstHour < hourCounts[i] ) {
+                firstHour = hourCounts[i];
+                secondHour = firstHour;
+            }
+        }
+        
+        return firstHour;
+    }
+        
 }
