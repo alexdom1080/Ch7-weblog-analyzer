@@ -69,7 +69,8 @@ public class LogAnalyzer
     }
     
     /**
-     * Tracks number of accesses.
+     * Tracks number of accesses
+     * @returns int - the total number of accesses
      */
     public int numberOfAccesses() {
         int total = 0;
@@ -78,5 +79,22 @@ public class LogAnalyzer
             total += hourCounts[hour];
         }
         return total;
+    }
+    
+    /**
+     * Tracks for the busiest hour
+     * @returns int - the busiest hour
+     */
+    public int busiestHour() {
+        
+        int maxHour = 0;
+        
+        for(int hour = 1; hour < hourCounts.length; hour++) {
+            if(hourCounts[hour] > hourCounts[maxHour]) {
+                maxHour = hour;
+            }
+        }
+        
+        return maxHour;
     }
 }
