@@ -97,4 +97,20 @@ public class LogAnalyzer
         
         return maxHour;
     }
+    
+    /**
+     * Tracks quietest hour
+     * @returns int - the quietest hour
+     */
+    public int quietestHour() {
+        int quietestHour = 0;
+        
+        for(int i = 0; i < hourCounts.length; i++) {
+            if(hourCounts[i] > 0 && hourCounts[i] > quietestHour) {
+                quietestHour = hourCounts[i];
+            }
+        }
+        
+        return quietestHour;
+    }
 }
